@@ -1,14 +1,14 @@
 'use strict'; 
 (function() {
 
-  
+  function regUser(FName,LName){
   let person= {
-    name: "Jim",
-    lastName: "Cooper",
-    age:12,
-    isAdoult:function(){return person.age>=18 }
-
+     FName,
+     LName,
+    age:19,
   }
-
-display(person.isAdoult())
+display(person)}
+  
+  
+regUser("Gim","Cooper")
 })();
