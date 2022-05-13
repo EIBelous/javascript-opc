@@ -12,9 +12,13 @@
     height: 188,
     weight:92
   }
-  Object.assign(person,healthStats)
-display(person)}
-  
+  function mergeObj(person,healthStats){
+ return Object.assign({},person, healthStats)}
+
+let margetPerson =  mergeObj(person,healthStats)
+
+display(margetPerson)
+display(person)  }
   
 regUser("Gim","Cooper")
 })();
