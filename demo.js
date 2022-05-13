@@ -12,6 +12,11 @@ function Person(FName,LName,age){
 }
 let Jimmy=new Person("Jimmy","Butler",21)
 let Lebron=new Person("Lebron", "James",17)
-display(Jimmy,Lebron)
+Jimmy['aye color']="black"
+
+for (let Property in Lebron){
+  display (Property + '  ' + Lebron[Property])
+}
+
 
 })();
