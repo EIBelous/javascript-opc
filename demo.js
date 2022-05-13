@@ -1,24 +1,17 @@
 'use strict'; 
 (function() {
 
-  function regUser(FName,LName){
-  let person= {
-     FName,
-     LName,
-    age:14,
-    IsAdult() {return this.age>=18}
-  }
-  let healthStats={
-    height: 188,
-    weight:92
-  }
-  function mergeObj(person,healthStats){
- return Object.assign({},person, healthStats)}
 
-let margetPerson =  mergeObj(person,healthStats)
+ 
 
-display(margetPerson)
-display(person)  }
-  
-regUser("Gim","Cooper")
+function Person(FName,LName,age){
+  this.FName =FName,
+  this.LName =LName,
+  this.age=age,
+  this.IsAdult=function(){return this.age>18}
+}
+let Jimmy=new Person("Jimmy","Butler",21)
+let Lebron=new Person("Lebron", "James",17)
+display(Jimmy,Lebron)
+
 })();
