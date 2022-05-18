@@ -1,40 +1,41 @@
 'use strict'; 
 (function() {
 
-function Person(FName ,LName,age){
-  this.FName=this.FName,
-  this.LName=this.LName,
-  this.age=age;
-  Object.defineProperty(this,'fullName', {
-    get: function(){
-      return this.FName +' '+ this.LName
-    },
-    enumerable:true
-  } );
+class Person{
+  constructor(Fname, LName,age){
+    this.Fname=Fname,
+    this.LName=LName,
+    this.age=age
   }
-function Student(FName,LName,age){
-  Person.call(this, FName,LName,age)
-  this._enrolledCourses=[]
+  get fullName(){
+    return this.Fname+' '+this.LName
 
-  this.enroll=function(courseId){
-    this._enrolledCourses.push(courseId)
   }
-  this.getCourses=function(){
-return this.fullname+'s enroled to courses'+this._enrolledCourses.join(',')
-
-
-  };
+  set fullName(fullName){
+    let nameParts=fullName.split(' ')
+    this.Fname=nameParts[0]
+    this.LName=nameParts[1]
   }
-  Student.prototype=Object.create(Person.prototype)
-  Student.prototype.constructor=Student
+  isAdult(){
+    return this.age>=18
+  }
+}
 
-  let Jim=new Student("Jim",'Coper',28)
-  display(Jim)
+class Student extends Person{
+  constructor(Fname,LName,age){
+    super(Fname,LName,age)
+    this._enrollCourses=[]
+      }
+      enroll(courseId){
+        this._enrollCourses.push(courseId)
+      } 
+  getCourses(){
+    return this.fullName +'s enrolled to cource'
+    this._enrollCourses.join(',')
+  }    
 
-  Jim.enroll('2222')
-  Jim.enroll('asds')
-
-  display(Jim.getCourses())
-
-display('2=2')
+}
+let Jim=new Person('Jim','Cooper',29)
+Jim.enroll('Narhoz')
+display('Jim.getCourses')
 })();
