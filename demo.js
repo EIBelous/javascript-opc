@@ -1,10 +1,12 @@
 'use strict'; 
 (function() {
-function checkPass(password){
-  let regex=new RegExp('^(?=.*[A-Z])(?=.*[a-z])(?=.*[\\d]).{8,}$')
-return regex.test(password)
+function findAlerts(logData){
+  let regex=/ERROR(.*?):(.*?)/g
+  displayRegexArray(regex.exec(logData))
+  display('---------------------------')
+  display(regex.exec(logData))
 }
-
-display(checkPass('Stronger1'))
-
+let logData='INFsssO:OK, ERROR(HIGH): Something is broke, ERROR(Low):Pohui'
+let result=findAlerts(logData)
+display(result)
 })();
