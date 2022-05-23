@@ -1,8 +1,10 @@
 'use strict'; 
 (function() {
+function checkPass(password){
+  let regex=new RegExp('^(?=.*[A-Z])(?=.*[a-z])(?=.*[\\d]).{8,}$')
+return regex.test(password)
+}
 
+display(checkPass('Stronger1'))
 
-
-display(Math.random())
-display(Math.max(2,333,11,23))
 })();
